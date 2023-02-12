@@ -4,11 +4,9 @@ const getAllUsers = async (req, res) => {
   try {
     const users = await User.find({}).limit(req.query._end);
 
-    console.log(users);
-
-    res.status(200).json({ msg: 'success', data: users });
+    res.status(200).json({ message: 'success', data: users });
   } catch (error) {
-    res.status(500).json({ msg: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -19,7 +17,7 @@ const createUser = async (req, res) => {
     const userExists = await User.findOne({ email });
 
     if (userExists)
-      return res.status(200).json({ msg: 'success', data: userExists });
+      return res.status(200).json({ message: 'success', data: userExists });
 
     const newUser = await User.create({
       name,
@@ -27,9 +25,9 @@ const createUser = async (req, res) => {
       avatar,
     });
 
-    res.status(200).json({ msg: 'success', data: newUser });
+    res.status(200).json({ message: 'success', data: newUser });
   } catch (error) {
-    res.status(500).json({ msg: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
