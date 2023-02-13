@@ -41,8 +41,8 @@ const getAllProperties = async (req, res) => {
       .skip(_start)
       .sort({ [_sort]: _order });
 
-    res.headers('x-total-count', count);
-    res.headers('Access-Control-Expose-Headers', 'x-total-count');
+    res.header('x-total-count', count);
+    res.header('Access-Control-Expose-Headers', 'x-total-count');
 
     res
       .status(200)
