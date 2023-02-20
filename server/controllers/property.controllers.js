@@ -54,6 +54,7 @@ const getAllProperties = async (req, res) => {
 
 const getPropertyDetail = async (req, res) => {
   const { id } = req.params;
+  console.log(id);
 
   const propertyExists = await Property.findOne({ _id: id }).populate(
     'creator'
